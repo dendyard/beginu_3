@@ -1,0 +1,44 @@
+svg.patternlock g.lock-lines line {
+    stroke-width: 1.5;
+    stroke: rgb(0, 0, 0);
+    opacity: 1;
+}
+
+svg.patternlock g.lock-dots circle {
+    stroke: transparent;
+    fill: black;
+    opacity: 0.1;
+
+}
+
+svg.patternlock g.lock-actives circle {
+    fill: rgb(0, 0, 0);
+    opacity: 1;
+    animation: lock-activate-dot;
+    transform-origin: center;
+}
+
+svg.patternlock g.lock-lines line {
+    stroke-width: 3.5px;
+    stroke-linecap: round;
+}
+
+svg.patternlock.success g.lock-actives circle {
+    fill: rgb(0, 0, 0);
+}
+
+svg.patternlock.error g.lock-actives circle {
+    fill: rgb(0, 0, 0);
+}
+
+@keyframes lock-activate-dot {
+    0% {
+        transform: scale(0);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}

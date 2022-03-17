@@ -1,0 +1,415 @@
+body {
+    background-color: hsl(43, 100%, 50%);
+    overflow-x: hidden;
+    font-family: 'Cabin', sans-serif;
+    margin: 0;
+}
+
+#bgheader {
+    position: absolute;
+    width: 100%;
+}
+
+#k1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -10px;
+    width: 100%;
+}
+
+#lock {
+    width: 360px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 16px;
+    position: absolute;
+}
+
+#bgin {
+    position: absolute;
+    /* left: 0; */
+    right: 10px;
+    margin: auto;
+    top: 6px;
+    width: 145px;
+}
+
+#cta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 100px;
+}
+
+#subcta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 180px;
+}
+
+.colsq {
+    width: 44px;
+    height: 55px;
+    background-color: #fff;
+    display: inline-block;
+    margin: 2px;
+    text-align: center;
+    padding-top: 16px;
+    border-radius: 7px;
+    border: solid;
+    font-size: 30px;
+}
+
+.colsq2 {
+    width: 25px;
+    height: 30px;
+    background-color: #fff;
+    display: inline-block;
+    margin: 2px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 7px;
+}
+
+.enterbtn {
+    width: 50px;
+    font-size: 10px;
+    padding-top: 15px;
+    height: 25px;
+    background-color: #000;
+    color: #fff;
+    opacity: 0;
+}
+
+.crr {
+    width: 33px;
+    margin: auto;
+    position: absolute;
+    background-color: #fff;
+    height: 42px;
+    padding: 11px 20px 20px 20px;
+    z-index: 12;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 38px;
+    pointer-events: none;
+    border: solid;
+}
+
+#cr1 {
+    left: 62px;
+    bottom: 178px;
+}
+
+#cr2 {
+    left: 149px;
+    bottom: 224px;
+}
+
+#cr3 {
+    left: 238px;
+    bottom: 178px;
+}
+
+#cr4 {
+    left: 238px;
+    bottom: 80px;
+}
+
+#cr5 {
+    left: 149px;
+    bottom: 30px;
+}
+
+#cr6 {
+    left: 62px;
+    bottom: 80px;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+#jso {
+    position: absolute;
+    bottom: 31px;
+    left: -19px;
+    right: 0;
+    margin: auto;
+    width: 360px;
+}
+
+#gameplay {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    bottom: 30%;
+    margin: auto;
+    height: 40px;
+}
+
+#kk {
+    position: absolute;
+    z-index: 10;
+    bottom: 100px;
+}
+
+#ckeyboard {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+}
+
+#boards {
+    position: absolute;
+    width: 220px;
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    height: 220px;
+    z-index: 100;
+    background-image: url(assets/masinu.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+.rowsq1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 40px;
+}
+
+#ml {
+    margin-top: 65px;
+}
+
+.ans2 {
+    font-size: 30px;
+    color: #ffb700;
+}
+
+.text-left {
+    text-align: left;
+}
+
+#tpesan {
+    opacity: 0;
+}
+
+#pesan {
+    opacity: 0;
+}
+
+#del {
+    background-image: url(assets/backspace.svg);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#cover {
+    width: 100%;
+    background-color: #ffb700;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+}
+
+#icn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#startn {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+#k0 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -26px;
+    width: 100%;
+}
+
+#bgin0 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 90px;
+}
+
+#sbc {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    top: 0;
+}
+
+#howto {
+    background-color: black;
+    width: 20px;
+    left: 8px;
+    /* right: 0; */
+    margin: auto;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 30px;
+    position: absolute;
+    top: 45px;
+    text-align: center;
+    z-index: 480;
+}
+
+#howt {
+    position: absolute;
+    z-index: 200;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    background-color: #000;
+    display: none;
+}
+
+#hint {
+    position: absolute;
+    bottom: 179px;
+    right: 0;
+    font-size: 16px;
+    /* background-image: url(assets/hint.svg); */
+    width: 83px;
+    height: 20px;
+    background-repeat: no-repeat;
+    padding-top: 25px;
+    z-index: 600;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    background-color: #e91e63;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+#closebtn {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+}
+
+#skkr {
+    position: absolute;
+    top: 84px;
+    left: 10px;
+    font-size: 16px;
+    /* right: 0; */
+    margin: auto;
+    /* width: 100%; */
+    text-align: center;
+}
+
+#msc {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 300;
+}
+
+#hht {
+    position: fixed;
+    width: 320px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 30%;
+    z-index: 200;
+    background-color: white;
+    padding: 10px;
+    display: none;
+}
+
+#skrrr {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #9c27b0;
+    width: 100px;
+    margin: auto;
+    padding: 10px;
+    color: #fff;
+    opacity: 0;
+}
+
+
+@media screen and (min-width: 400px) {
+    .colsq2 {
+        width: 30px;
+        height: 33px;
+        background-color: #fff;
+        display: inline-block;
+        margin: 2px;
+        text-align: center;
+        padding-top: 15px;
+        border-radius: 7px;
+    }
+
+    .enterbtn {
+        width: 50px;
+        font-size: 10px;
+        padding-top: 15px;
+        height: 25px;
+        background-color: #000;
+        color: #fff;
+        opacity: 0;
+    }
+
+    .colsq {
+        width: 55px;
+        height: 58px;
+        background-color: #fff;
+        display: inline-block;
+        margin: 2px;
+        text-align: center;
+        padding-top: 24px;
+        border-radius: 7px;
+        font-size: 29px;
+        border: solid;
+    }
+  }

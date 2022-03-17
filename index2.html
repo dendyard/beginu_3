@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Beginu Game | Tebak Kata</title>
+
+        <meta name="msapplication-TileColor" content="#FFB902">
+        <meta name="theme-color" content="#FFB902">
+
+
+    </head>
+
+    <body>
+        <iframe id="instagram-embed-0" src="https://www.instagram.com/p/CXyG52tIrrm/?__a=1"></iframe>
+
+        <textarea name="vv" id="vv" cols="30" rows="10"></textarea>
+
+    </body>
+
+    <script>
+        var timercheck;
+        var thediv;
+        var thessomobile;
+        var ga_send;
+        var cnt = 15; //Loop for 15sec
+
+        vv.addEventListener('click', startscan);
+
+        function startscan() {
+            timercheck = setInterval(ssoframeopen, 1000);
+        }
+
+        function ssoframeopen() {
+            thediv = document.getElementById("instagram-embed-0");
+
+
+            if (thediv) {
+                vv.value = thediv.contentDocument.getElementsByTagName('body')[0];
+                if (thediv.contentWindow.document.querySelector('body').innerHTML) {
+                    clearInterval(timercheck);
+                    //console.log(thediv.getElementsByTagName('img'));
+                    console.log(thediv[0]);
+
+                }
+
+            }
+
+            if (cnt <= 0) {
+                clearInterval(timercheck);
+
+
+            }
+            cnt--;
+        }
+    </script>
+
+
+
+</html>

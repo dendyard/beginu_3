@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Beginu Game | Tebak Kata</title>
+
+        <meta name="msapplication-TileColor" content="#FFB902">
+        <meta name="theme-color" content="#FFB902">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css?v=30">
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/TweenMax.min.js"></script>
+        <script src="kbbi6.js"></script>
+        <!-- build:css styles.css -->
+        <link rel="stylesheet" href="patternlock.css?v=1">
+    </head>
+
+    <body>
+
+        <audio id='pilih'>
+        <source src="fx/click.mp3" type="audio/mpeg">
+    </audio>
+        <audio id='jadi'>
+        <source src="fx/jadi.mp3" type="audio/mpeg">
+    </audio>
+        <audio id='bgsfx' loop>
+        <source src="fx/serverrun.mp3" type="audio/mpeg">
+    </audio>
+        <audio id='spawn'>
+        <source src="fx/masuk.mp3" type="audio/mpeg">
+    </audio>
+
+        <div class="container">
+
+            <img src="assets/kotak.svg" id='k1' alt="">
+            <img src="assets/judul.svg" alt="" id="bgin">
+            <img src="assets/music.svg" alt="" id="msc">
+            <div id="skkr">Skor : 0</div>
+            <div id="hint" class="rowsq">Buka Kata</div>
+            <div id="howto" class="rowsq">?</div>
+            <!-- <img src="assets/judul.svg" alt="" id="bgin">
+       <img src="assets/subcta.svg" alt="" id="subcta"> 
+       <img src="assets/cta.svg" alt="" id="cta"> -->
+
+            <div id="cover">
+                <img src="assets/kotak.svg" id='k0' alt="">
+                <img src="assets/judul.svg" alt="" id="bgin0">
+                <img src="assets/masinu.png" alt="" id="icn">
+                <img src="assets/yukmain.svg" alt="" id="startn">
+                <img src="assets/subcopy.svg" alt="" id="sbc">
+            </div>
+
+            <div id="howt">
+                <img src="assets/close.svg" alt="" id="closebtn">
+                <img src="assets/howto.svg?v=1" alt="" id="hwt">
+            </div>
+
+            <div id="hht"></div>
+            <div id="boards">
+                <div id="tpesan" class="text-left">Upps!!</div>
+                <div id="pesan" class="text-left">Jawabannya adalah :<br>
+                    <p class="ans2" id='thsec'></p>
+                </div>
+
+                <img src="assets/mainlagi.svg" id='ml'>
+            </div>
+
+            <div id="gameplay">
+                <div id="rwa" class="rowsq">
+                    <div id='skrrr'>+100</div>
+                    <div id="rwa1" class="colsq">&nbsp;</div>
+                    <div id="rwa2" class="colsq">&nbsp;</div>
+                    <div id="rwa3" class="colsq">&nbsp;</div>
+                    <div id="rwa4" class="colsq">&nbsp;</div>
+                    <div id="rwa5" class="colsq">&nbsp;</div>
+                    <div id="rwa6" class="colsq">&nbsp;</div>
+                </div>
+            </div>
+
+            <!-- <div id="ckeyboard">
+        
+        <div id="rwa" class="rowsq">
+            <div id="q" class="colsq2">Q</div>
+            <div id="w" class="colsq2">W</div>
+            <div id="e" class="colsq2">E</div>
+            <div id="r" class="colsq2">R</div>
+            <div id="t" class="colsq2">T</div>
+            <div id="y" class="colsq2">Y</div>
+            <div id="u" class="colsq2">U</div>
+            <div id="i" class="colsq2">I</div>
+            <div id="o" class="colsq2">O</div>
+            <div id="p" class="colsq2">P</div>
+        </div>
+        <div id="rwb" class="rowsq">
+            <div id="a" class="colsq2">A</div>
+            <div id="s" class="colsq2">S</div>
+            <div id="d" class="colsq2">D</div>
+            <div id="f" class="colsq2">F</div>
+            <div id="g" class="colsq2">G</div>
+            <div id="h" class="colsq2">H</div>
+            <div id="j" class="colsq2">J</div>
+            <div id="k" class="colsq2">K</div>
+            <div id="l" class="colsq2">L</div>
+         </div>
+         <div id="rwd" class="rowsq">
+            <div id="ent" class="colsq2 enterbtn">ENTER</div>
+             <div id="z" class="colsq2">Z</div>
+             <div id="x" class="colsq2">X</div>
+             <div id="c" class="colsq2">C</div>
+             <div id="v" class="colsq2">V</div>
+             <div id="b" class="colsq2">B</div>
+             <div id="n" class="colsq2">N</div>
+             <div id="m" class="colsq2">M</div>
+             <div id="del" class="colsq2 enterbtn">&nbsp;</div>
+         </div>
+    </div> -->
+            <div id="theb">
+                <div id='jso'>
+                    <div id="cr1" class="crr">A</div>
+                    <div id="cr2" class="crr">B</div>
+                    <div id="cr3" class="crr">C</div>
+
+                    <div id="cr4" class="crr">D</div>
+                    <div id="cr5" class="crr">E</div>
+                    <div id="cr6" class="crr">F</div>
+                </div>
+                <!-- <img src="cIdkg.png" id='asd'> -->
+                <svg class="patternlock" id="lock" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+            <g class="lock-actives"></g>
+            <g class="lock-lines"></g>
+            <g class="lock-dots" id="dotsgroup">
+                <g class="lock-dots" id="dotsgroup">
+                    <circle id="b1" cx="26" cy="40" r="12"></circle>
+    
+                    <circle id="b2" cx="50%" cy="24" r="12"></circle>
+                    <circle id="b3" cx="83" cy="40" r="12"></circle>
+                    <circle id="b4" cx="83" cy="71" r="12"></circle>
+                    <circle id="b5" cx="50%" cy="87" r="12"></circle>
+                    <circle id="b6" cx="27" cy="71" r="12"></circle>
+                </g>
+            </g>
+        </svg>
+
+            </div>
+        </div>
+        <!-- <div id="hrdy">code by Dhany Da Vinci</div> -->
+    </body>
+    <!-- build:js vendor.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+    <!-- endbuild -->
+
+    <!-- build:js patternlock.js -->
+    <script src="patternlock.js?v=2" charset="utf-8"></script>
+    <!-- endbuild -->
+    <script>
+        let ans = [];
+        let lvl = 0;
+        let scokr = 0;
+        let prefix = ['rwa'];
+        let maximum = 5471;
+        let minimum = 0;
+        let playword = 6;
+        let mus = true;
+        var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+        var guestk = kbbi6[randomnumber];
+
+        var passme = 0;
+        var yuopen = false;
+        var erranw = 0;
+
+        var psn = '';
+        //console.log(guestk)
+
+        hint.style.display = 'none';
+        TweenMax.to(hint, 0, {
+            scale: 0,
+            ease: Back.easeOut
+        });
+
+        function d(id) {
+            return document.getElementById(id);
+        }
+
+        howt.style.opacity = '0';
+        startn.addEventListener('click', startgame);
+        closebtn.addEventListener('click', closehowto);
+        howto.addEventListener('click', openHow);
+        hht.addEventListener('click', () => {
+            hht.style.display = 'none';
+        });
+
+        var e = document.getElementById('lock')
+            // dotsgroup.innerHTML += '<circle id="b7" cx="10" cy="50" r="10"/>'    
+
+        var p = new PatternLock(e, {
+            onPattern: function() {
+                this.success()
+            }
+        });
+
+
+        hint.addEventListener('click', () => {
+
+            var tmpsh = guestk.split('');
+            yuopen = true;
+            hint.style.display = 'none';
+            TweenMax.to(hint, 0, {
+                scale: 0,
+                ease: Back.easeOut
+            });
+            passme = 0;
+            for (let i = 0; i < tmpsh.length; i++) {
+
+                d(prefix[lvl] + (i + 1)).innerHTML = tmpsh[i].toUpperCase();
+
+            }
+        });
+
+        msc.addEventListener('click', () => {
+            if (mus) {
+                bgsfx.pause();
+                mus = false;
+            } else {
+                bgsfx.play();
+                mus = true;
+            }
+            bgsfx.volume = 0.7;
+
+        })
+
+        function openHow() {
+            howt.style.display = 'block';
+            TweenMax.to(howt, 0.5, {
+                alpha: 1,
+                ease: Expo.easeOut
+            });
+        }
+
+        function closehowto() {
+            howt.style.display = 'none';
+            howt.style.opacity = '0';
+        }
+
+        function startgame() {
+            // bgsfx.currentTime = 0;
+            // bgsfx.play();
+            // bgsfx.volume = 0.7;
+            TweenMax.to(cover, 1, {
+                x: 500,
+                ease: Expo.easeIn,
+                onComplete: () => {
+                    cover.style.dislay = 'none';
+                }
+            });
+        }
+
+        TweenMax.to(boards, 0, {
+            scale: 0,
+            ease: Expo.easeOut
+        });
+
+
+        ml.addEventListener('click', () => {
+            //location.reload();
+
+            ans = [];
+            lvl = 0;
+            randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+            guestk = kbbi6[randomnumber];
+            tpesan.innerHTML = '';
+            pesan.innerHTML = '';
+            console.log(guestk);
+            TweenMax.to(boards, 0, {
+                scale: 0,
+                ease: Back.easeOut
+            });
+            TweenMax.to(gameplay, 0.3, {
+                alpha: 1,
+                ease: Sine.easeOut
+            });
+            TweenMax.to(ckeyboard, 0.3, {
+                alpha: 1,
+                ease: Sine.easeOut
+            });
+            skkr.style.display = 'block';
+            TweenMax.to(tpesan, 0, {
+                alpha: 0,
+                ease: Sine.easeOut
+            });
+            TweenMax.to(pesan, 0, {
+                alpha: 0,
+                ease: Sine.easeOut
+            });
+            psn = '';
+            getpenjelasan();
+            for (let i = 0; i < prefix.length; i++) {
+
+                for (let j = 0; j < prefix.length; j++) {
+                    // console.log('i=' + i);
+                    // console.log('j=' + prefix[i] + (j+1));
+                    d(prefix[i] + (j + 1)).style.backgroundColor = '#fff';
+                    d(prefix[i] + (j + 1)).innerHTML = '&nbsp;';
+                }
+            }
+
+
+        });
+
+        // d('q').addEventListener('click', inpkey);
+        // d('w').addEventListener('click', inpkey);
+        // d('e').addEventListener('click', inpkey);
+        // d('r').addEventListener('click', inpkey);
+        // d('t').addEventListener('click', inpkey);
+        // d('y').addEventListener('click', inpkey);
+        // d('u').addEventListener('click', inpkey);
+        // d('i').addEventListener('click', inpkey);
+        // d('o').addEventListener('click', inpkey);
+        // d('p').addEventListener('click', inpkey);
+
+        // d('a').addEventListener('click', inpkey);
+        // d('s').addEventListener('click', inpkey);
+        // d('d').addEventListener('click', inpkey);
+        // d('f').addEventListener('click', inpkey);
+        // d('g').addEventListener('click', inpkey);
+        // d('h').addEventListener('click', inpkey);
+        // d('j').addEventListener('click', inpkey);
+        // d('k').addEventListener('click', inpkey);
+        // d('l').addEventListener('click', inpkey);
+
+        // d('z').addEventListener('click', inpkey);
+        // d('x').addEventListener('click', inpkey);
+        // d('c').addEventListener('click', inpkey);
+        // d('v').addEventListener('click', inpkey);
+        // d('b').addEventListener('click', inpkey);
+        // d('n').addEventListener('click', inpkey);
+        // d('m').addEventListener('click', inpkey);
+        // d('ent').addEventListener('click', goword);
+        // d('del').addEventListener('click', popwords);
+
+
+        function inpkey(e) {
+            pilih.currentTime = 0;
+            pilih.play();
+
+
+            TweenMax.to(d(e.target.id), 0.1, {
+                scale: 1.8,
+                ease: Expo.easeOut
+            });
+            TweenMax.to(d(e.target.id), 0.1, {
+                scale: 1,
+                ease: Expo.easeOut,
+                delay: 0.1
+            });
+
+
+        }
+
+        function goword() {
+            // if (lvl < 6) {
+            //     if (ans.length == 6) {
+            //         checkmine();
+            //     }else{
+            //         jungling();
+            //     }
+            //     jadi.currentTime = 0;
+            //     jadi.play();
+            // }else{
+            //     gameover();
+            // }
+        }
+
+        //getpenjelasan();
+
+        function getpenjelasan() {
+            //https://kbbi-api-amm.herokuapp.com/search?q=buyung
+            hint.style.display = 'none';
+            var tmppsn = '';
+            $.ajax({
+                type: "GET",
+                url: "https://kbbi-api-amm.herokuapp.com/search?q=" + guestk,
+                dataType: "json",
+            }).done(function(result) {
+                //console.log(result);
+                //console.log(result.data.resultLists.length);
+                psn = 'Hint tidak tersedia :(';
+                var ss = String(result.data.resultLists[0].arti);
+
+                if (result.data.resultLists.length > 0) {
+                    for (let v = 0; v < result.data.resultLists.length; v++) {
+                        console.log(result.data.resultLists[v].arti);
+                        tmppsn += result.data.resultLists[v].arti + "\n";
+                    }
+                }
+
+                //console.log('DE: ' + ss.length);
+                hint.style.display = 'block';
+                if (ss.length > 0) {
+                    hint.style.display = 'block';
+                    psn = tmppsn;
+                }
+
+            });
+        }
+
+        var skk = 0;
+
+        function checkcirc() {
+
+            var tmcheck = guestk.split('');
+
+
+            if (ans.length == 6) {
+                for (let i = 0; i < playword; i++) {
+                    console.log(tmcheck[i].toUpperCase() + ' - ' + ans[i]);
+                    if (tmcheck[i].toUpperCase() == ans[i]) {
+                        skk++;
+                    }
+                }
+            }
+
+            console.log('sho ' + skk);
+            if (skk == 6) {
+                console.log('benar');
+                skk = 0;
+                win();
+                jungling2();
+            } else {
+                console.log('salah');
+                skk = 0;
+                jungling();
+                ans = [];
+                passme++;
+
+                if (passme >= 3) {
+                    hint.style.display = 'block';
+                    TweenMax.to(hint, 0.5, {
+                        scale: 1,
+                        ease: Back.easeOut
+                    });
+                }
+            }
+
+            //d("cr" + (i+1)).style.backgroundColor = "#fff";
+        }
+
+        function win() {
+            jadi.currentTime = 0;
+            jadi.play();
+            passme = 0;
+            isit = 0;
+            if (yuopen) {
+                scokr += (10 - erranw);
+                skrrr.innerHTML = '+' + (10 - erranw);
+            } else {
+                scokr += (50 - erranw);
+                skrrr.innerHTML = '+' + (50 - erranw);
+            }
+
+
+
+            TweenMax.to(skrrr, 0.5, {
+                y: -50,
+                alpha: 1,
+                ease: Expo.easeOut
+            });
+            TweenMax.to(skrrr, 0.5, {
+                alpha: 0,
+                ease: Expo.easeOut,
+                delay: 0.3,
+                onComplete: () => {
+                    TweenMax.to(skrrr, 0, {
+                        y: 0,
+                        alpha: 0,
+                        ease: Expo.easeOut
+                    });
+                }
+            });
+
+
+            skkr.innerHTML = "Skor : " + scokr;
+            hint.style.display = 'none';
+            TweenMax.to(hint, 0, {
+                scale: 0,
+                ease: Back.easeOut
+            });
+            yuopen = false;
+            erranw = 0;
+
+        }
+
+
+        function gameover() {
+            hint.style.display = 'none';
+            tpesan.innerHTML = 'Upps!!<br><br>Skor Kamu : ' + scokr;
+            pesan.innerHTML = '<br>Jawabannya adalah :<p class="ans2" id="thsec">' + guestk.toUpperCase(); + '</p>';
+
+            TweenMax.to(boards, 0.5, {
+                scale: 1,
+                ease: Back.easeOut,
+                delay: 0.3
+            });
+            TweenMax.to(gameplay, 0.5, {
+                alpha: 0,
+                ease: Sine.easeOut
+            });
+            TweenMax.to(ckeyboard, 0.5, {
+                alpha: 0,
+                ease: Sine.easeOut,
+                delay: 0.2
+            });
+
+            TweenMax.to(tpesan, 0.5, {
+                alpha: 1,
+                ease: Sine.easeOut,
+                delay: 0.8
+            });
+            TweenMax.to(pesan, 0.5, {
+                alpha: 1,
+                ease: Sine.easeOut,
+                delay: 0.8
+            });
+
+            skkr.style.display = 'none';
+
+        }
+
+        function jungling() {
+            var andelay = 0;
+
+            //Animate untuk efek WOW
+            for (let i = 0; i < playword; i++) {
+                TweenMax.to(d(prefix[lvl] + (i + 1)), 0.2, {
+                    scale: 1.2,
+                    ease: Sine.easeOut,
+                    delay: andelay
+                });
+                TweenMax.to(d(prefix[lvl] + (i + 1)), 0.2, {
+                    scale: 1,
+                    ease: Sine.easeOut,
+                    delay: andelay + 0.09
+                });
+                andelay += 0.05;
+                d("cr" + (i + 1)).style.backgroundColor = "#fff";
+                d(prefix[lvl] + (i + 1)).style.backgroundColor = '#fff';
+                d(prefix[lvl] + (i + 1)).innerHTML = '&nbsp;';
+            }
+        }
+
+        function jungling2() {
+            var andelay = 0.1;
+            ans = [];
+            //Animate untuk efek WOW
+            for (let i = 0; i < playword; i++) {
+
+                TweenMax.to(d(prefix[lvl] + (i + 1)), 0.1, {
+                    scale: 1.4,
+                    y: -20,
+                    alpha: 0,
+                    ease: Back.easeOut,
+                    delay: andelay
+                });
+                andelay += 0.05;
+
+                d(prefix[lvl] + (i + 1)).style.backgroundColor = '#fff';
+                d(prefix[lvl] + (i + 1)).innerHTML = '&nbsp;';
+                d("cr" + (i + 1)).style.backgroundColor = "#fff";
+
+            }
+
+            TweenMax.to(d(prefix[lvl] + ('1')), 0.5, {
+                scale: 1.4,
+                alpha: 0,
+                ease: Sine.easeOut,
+                delay: 0.5,
+                onComplete: getnewword
+            });
+        }
+
+        function getnewword() {
+            var andelay = 0;
+
+            randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+            guestk = kbbi6[randomnumber];
+
+            console.log('new word' + guestk);
+
+            //Animate untuk efek WOW
+            for (let i = 0; i < playword; i++) {
+                TweenMax.to(d(prefix[lvl] + (i + 1)), 0.2, {
+                    scale: 1,
+                    y: 0,
+                    alpha: 1,
+                    ease: Back.easeOut,
+                    delay: andelay
+                });
+                andelay += 0.05;
+
+                d(prefix[lvl] + (i + 1)).style.backgroundColor = '#fff';
+
+            }
+
+            putwords_init();
+            spawn.currentTime = 0;
+            spawn.play();
+        }
+
+        var isit = 0;
+
+        function putwords(val) {
+            //console.log(prefix.length);
+            var tmcheck = guestk.split('');
+            if (ans.length < playword) {
+                ans.push(val.toUpperCase());
+                let actans = tmcheck[ans.length - 1].toUpperCase();
+
+                //console.log('asd: ' + ans)
+
+                d(prefix[lvl] + (ans.length)).innerHTML = val;
+                d(prefix[lvl] + (ans.length)).style.backgroundColor = '#4caf50';
+
+                if (val == actans) {
+                    isit += 1;
+                }
+            }
+        }
+
+        putwords_init();
+
+        function shuffle(array) {
+            var currentIndex = array.length,
+                temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        function putwords_init() {
+            var tmpsh = [];
+
+            var randomp = 10;
+
+            if (guestk.length > 0) {
+                tmpsh = guestk.split('');
+                console.log(guestk);
+                tmpsh = shuffle(tmpsh);
+
+                for (let i = 0; i < tmpsh.length; i++) {
+                    if (i == randomp) {
+                        d(prefix[lvl] + (i + 1)).innerHTML = "?";
+                        d(prefix[lvl] + (i + 1)).style.backgroundColor = "#ffeb3b";
+                    } else {
+                        d("cr" + (i + 1)).innerHTML = tmpsh[i].toUpperCase();
+                    }
+
+                    console.log(tmpsh[i].toUpperCase());
+                }
+            }
+
+        }
+
+        function popwords(val) {
+            if (ans.length > 0) {
+                ans.pop();
+                d(prefix[lvl] + (ans.length + 1)).innerHTML = '&nbsp;';
+            }
+        }
+
+        //cta.addEventListener('click', startGame);
+
+        TweenMax.to(k1, 0, {
+            alpha: 0.3,
+            ease: Sine.easeOut
+        });
+
+        function startGame2() {
+
+            // TweenMax.to(bgin, 0.5, {alpha: 0, ease: Back.easeIn});
+            // TweenMax.to(subcta, 0.5, {alpha: 0, ease: Back.easeIn, delay:0.1});
+            // TweenMax.to(cta, 0.5, {alpha: 0, ease: Back.easeIn, delay:0.1});
+        }
+    </script>
+
+</html>
